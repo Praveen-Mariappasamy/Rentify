@@ -13,7 +13,13 @@ require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-1whq.vercel.app"],
+        methods: ["POST","GET"],
+        credentials: true
+    }
+));
 app.use('/images',express.static('upload/images'))
 
 mongoose.connect(process.env.DB)
