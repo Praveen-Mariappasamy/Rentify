@@ -18,7 +18,7 @@ const Owner = () => {
 
   const login = async () => {
     let resData;
-    await fetch('https://rentify-eosin-theta.vercel.app/login',{
+    await fetch('https://rentify-app-api.vercel.app/login',{
       method:'POST',
       headers:{
         Accept:'application/json',
@@ -47,7 +47,7 @@ const Owner = () => {
       return;
     }
     try {
-      const response = await fetch('https://rentify-eosin-theta.vercel.app/signup', {
+      const response = await fetch('https://rentify-app-api.vercel.app/signup', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
