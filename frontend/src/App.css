@@ -1,0 +1,91 @@
+
+.container{
+  background-image: url('Images/building.jpg');
+  background-size: cover; 
+    background-position: center;
+    background-attachment: fixed;
+  display: flex;
+  flex-direction: row;
+  gap: 7rem;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.tenant, .owner{
+  background-color: aliceblue;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  margin-top: 6rem;
+  box-shadow: 0px 1px 3px -2px #000;
+  align-items: center;
+  justify-content: center;  
+  border-radius: 100px;
+}
+img{
+  height: 5rem;
+  width: 5rem;
+}
+
+.intr{
+  margin-bottom: 60vh;
+  text-align: center;
+  color: black;
+  font-size: 600;
+}
+h3{
+  font-weight: 700;
+  font-size: large;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .tenant, .owner {
+    margin-top: 3rem;
+    width: 80%;
+    min-width: 10rem;
+    height: auto;
+  }
+
+  .intr{
+    margin-right: 35vh;
+    margin-bottom: 5vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    gap: 3rem;
+  }
+  
+  .tenant, .owner {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    gap: 2rem;
+  }
+  
+  .tenant, .owner {
+    margin-top: 1rem;
+  }
+  
+  img {
+    height: 4rem;
+    width: 4rem;
+  }
+}
