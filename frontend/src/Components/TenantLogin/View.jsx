@@ -11,7 +11,7 @@ const View = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://rentify-eosin-theta.vercel.app/allprops' , {
+        const response = await fetch('https://rentify-app-api.vercel.app/allprops' , {
           method: 'POST',
           headers:{
            Accept:'application/json',
