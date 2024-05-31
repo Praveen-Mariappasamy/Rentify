@@ -20,7 +20,7 @@ app.use(cors(
         credentials: true
     }
 ));
-app.use('/images',express.static('upload/images'))
+app.use('/images',express.static('/tmp'))
 
 mongoose.connect(process.env.DB)
     .then(() => console.log('MongoDB connected'))
@@ -34,7 +34,7 @@ app.post("/upload",multer.single('product'),(req,res)=>{
     try{
     res.json({
         success:1,
-        image_url: `http://localhost:${port}/images/${req.file.filename}`
+        image_url: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     })
 }
 catch{
