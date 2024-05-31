@@ -13,7 +13,7 @@ const Profile = () => {
         const email=localStorage.getItem('email')
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/protected', {
+                const response = await fetch('https://rentify-eosin-theta.vercel.app/protected', {
                     method:'POST',
                     headers:{
                         Accept:'application/json',
