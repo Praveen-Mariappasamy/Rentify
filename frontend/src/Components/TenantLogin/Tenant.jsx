@@ -18,7 +18,7 @@ const Owner = () => {
   }
 
   const login = async () => {
-    let resData = await fetch('https://rentify-eosin-theta.vercel.app/login',{
+    let resData = await fetch('https://rentify-app-api.vercel.app/login',{
       method:'POST',
       headers:{
         Accept:'application/json',
@@ -47,7 +47,7 @@ const Owner = () => {
       alert("Invalid E-mail Address");
       return;
     }
-    let resData = await fetch('https://rentify-eosin-theta.vercel.app/signup',{
+    let resData = await fetch('https://rentify-app-api.vercel.app/signup',{
       method:'POST',
       headers:{
         Accept:'application/json',
