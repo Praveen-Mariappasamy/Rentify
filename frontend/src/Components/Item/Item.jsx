@@ -10,7 +10,7 @@ const Item = (props) => {
   const [like,setLike] = useState(props.rating);
   const [liked,setLiked] = useState(false);
   const updater = async()=>{
-    const res=await fetch('http://localhost:5000/update',{
+    const res=await fetch('https://rentify-eosin-theta.vercel.app/update',{
       method:"POST",
       headers:{
         Accept:"application/json",
@@ -30,7 +30,7 @@ const Item = (props) => {
   }
 
   const removeFun=async()=>{
-    const res=await fetch('http://localhost:5000/delete',{
+    const res=await fetch('https://rentify-eosin-theta.vercel.app/delete',{
       method:"POST",
       headers:{
         Accept:"application/json",
