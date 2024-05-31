@@ -15,7 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors(
     {
-        origin: ["https://deploy-mern-1whq.vercel.app"],
+        origin: ["https://rentify-kjn9.vercel.app/"],
         methods: ["POST","GET"],
         credentials: true
     }
