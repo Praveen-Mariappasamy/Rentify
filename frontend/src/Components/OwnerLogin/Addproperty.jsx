@@ -36,7 +36,7 @@ const Addproperty = () => {
     let formdata = new FormData();
     formdata.append('product',image);
 
-    await fetch('https://rentify-eosin-theta.vercel.app/upload',{
+    await fetch('https://rentify-app-api.vercel.app/upload',{
         method:'POST',
         headers:{
             Accept:'application/json',
@@ -46,7 +46,7 @@ const Addproperty = () => {
 
     if(resData.success){
         prop.image=resData.image_url;
-        await fetch('https://rentify-eosin-theta.vercel.app/addproduct',{
+        await fetch('https://rentify-app-api.vercel.app/addproduct',{
             method:'POST',
             headers:{
                 Accept:'application/json',
