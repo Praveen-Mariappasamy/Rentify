@@ -28,6 +28,9 @@ mongoose.connect(process.env.DB)
 
 app.get('/',(req,res) => {
     console.log("Connected");
+    res.json({
+        success:1
+    });
 })
 
 app.post("/upload",multer.single('product'),(req,res)=>{
