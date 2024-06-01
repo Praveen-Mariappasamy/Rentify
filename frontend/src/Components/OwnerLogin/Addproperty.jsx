@@ -31,33 +31,27 @@ const Addproperty = () => {
   }
 
   const addproperty = async()=>{
-    let resData;
-    let prop = data;
-    let formdata = new FormData();
-    formdata.append('product',image);
-
-    await fetch('https://rentify-app-api.vercel.app/upload',{
-        method:'POST',
-        headers:{
-            Accept:'application/json',
-        },
-        body:formdata,
-    }).then((res)=>res.json()).then((data)=>{resData=data})
-
-    if(resData.success){
-        prop.image=resData.image_url;
-        await fetch('https://rentify-app-api.vercel.app/addproduct',{
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onload = async () => {
+      if (!reader.result) {
+        console.error('Failed to read file');
+        return;
+      }
+    const base64Data = reader.result;
+        data.image=base64Data;
+        await fetch('http://localhost:5000/addproduct',{
             method:'POST',
             headers:{
                 Accept:'application/json',
                 'Content-Type':'application/json',
             },
-            body:JSON.stringify(prop),
+            body:JSON.stringify(data),
         }).then((res)=>res.json()).then((data)=>{
             data.success?alert("Property Added"):alert("Failed");
             window.location.reload();
         })
-    }
+      }
 }
 
 
