@@ -33,17 +33,6 @@ app.get('/',(req,res) => {
     });
 })
 
-app.post("/upload",multer.single('product'),(req,res)=>{
-    try{
-    res.json({
-        success:1,
-        image_url: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-    })
-}
-catch{
-    res.send({success:false})
-}
-})
 
 app.post('/addproduct',async(req,res)=>{
     try{
