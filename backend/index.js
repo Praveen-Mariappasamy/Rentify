@@ -55,7 +55,7 @@ app.post('/addproduct',async(req,res)=>{
     })
 }
 catch{
-    res.send({success:false})
+    res.json({success:false})
 }
 })
 
