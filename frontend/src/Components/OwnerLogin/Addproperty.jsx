@@ -30,29 +30,44 @@ const Addproperty = () => {
     setImage(e.target.files[0]);
   }
 
-  const addproperty = async()=>{
-    const reader = new FileReader();
-    reader.readAsDataURL(image);
-    reader.onload = async () => {
-      if (!reader.result) {
-        console.error('Failed to read file');
-        return;
-      }
+  const addproperty = async () => {
+  const reader = new FileReader();
+  reader.readAsDataURL(image);
+  reader.onload = async () => {
+    if (!reader.result) {
+      console.error('Failed to read file');
+      return;
+    }
     const base64Data = reader.result;
-        data.image=base64Data;
-        await fetch('http://localhost:5000/addproduct',{
-            method:'POST',
-            headers:{
-                Accept:'application/json',
-                'Content-Type':'application/json',
-            },
-            body:JSON.stringify(data),
-        }).then((res)=>res.json()).then((data)=>{
-            data.success?alert("Property Added"):alert("Failed");
-            window.location.reload();
-        })
+    data.image = base64Data;
+    try {
+      const response = await fetch('http://localhost:5000/addproduct', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+
+      const result = await response.json();
+      if (result.success) {
+        alert("Property Added");
+      } else {
+        alert("Failed");
+      }
+      window.location.reload();
+    } catch (error) {
+      console.error('There was a problem with your fetch operation:', error);
+      alert("Failed to add property");
+    }
+  }
 }
+
 
 
   return (
