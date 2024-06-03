@@ -34,30 +34,32 @@ app.get('/',(req,res) => {
 })
 
 
-app.post('/addproduct',async(req,res)=>{
-    try{
+app.post('/addproduct', async (req, res) => {
+  try {
     const property = new Property({
-        location:req.body.location,
-        image:req.body.image,
-        number:req.body.number,
-        cost:req.body.cost,
-        phone: req.body.phone,
-        name: req.body.name,
-        email: req.body.email,
-        fav: req.body.fav,
-        rating: 0
+      location: req.body.location,
+      image: req.body.image,
+      number: req.body.number,
+      cost: req.body.cost,
+      phone: req.body.phone,
+      name: req.body.name,
+      email: req.body.email,
+      fav: req.body.fav,
+      rating: 0
     });
+
     await property.save();
     console.log("saved");
+
     res.json({
-        success: true,
-        name: req.body.name,
-    })
-}
-catch{
-    res.json({success:false})
-}
-})
+      success: true,
+      name: req.body.name,
+    });
+  } catch (error) {
+    console.error('Error saving property:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+});
 
 app.post('/newprops',async(req,res)=>{
     try{
