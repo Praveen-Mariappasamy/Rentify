@@ -41,7 +41,7 @@ const Addproperty = () => {
     const base64Data = reader.result;
     data.image = base64Data;
     try {
-      const response = await fetch('http://localhost:5000/addproduct', {
+      const response = await fetch('https://rentify-app-api.vercel.app/addproduct', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
